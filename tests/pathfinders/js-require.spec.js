@@ -21,7 +21,7 @@ test('Matches only the right parts of the snippet', () => {
 
     const module = require("./path/to/module.js")
   `
-  
+
   expect(jsRequireModule.pathfinder(snippet))
     .toEqual(['a', 'b', 'node-require', './path/to/module.js'])
 })

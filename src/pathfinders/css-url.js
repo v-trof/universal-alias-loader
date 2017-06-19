@@ -1,13 +1,13 @@
 module.exports = {
   syntax: 'css',
   pathfinder: function(source) {
-    const regex = /url\((?:'|")?([^'"]*)(?:'|")?\)/gm
+    const regex = /\burl\(('|")?([^'"]*)(\1)?\)/gm
 
     const matches = []
 
     let match
     while ((match = regex.exec(source)) !== null) {
-      matches.push(match[1])
+      matches.push(match[2])
     }
 
     return matches ? matches : []
