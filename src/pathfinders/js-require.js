@@ -5,7 +5,7 @@ module.exports = {
 
     const matches = []
 
-    let match;
+    let match
     while ((match = regex.exec(source)) !== null) {
       matches.push(match[1])
     }
