@@ -7,7 +7,7 @@ const modules = [
   require('./pathfinders/js-es6import')
 ]
 
-modules.forEach(function(item) {
+modules.forEach(item => {
   if(item.syntax in pathfinders) pathfinders[item.syntax].push(item.pathfinder)
   else pathfinders[item.syntax] = [item.pathfinder]
 })

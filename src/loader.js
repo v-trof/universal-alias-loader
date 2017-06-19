@@ -1,5 +1,4 @@
 const loaderUtils = require('loader-utils')
-const objectAssign = require('object-assign')
 
 const aliasResolve = require('./alias-resolve')
 const importPathfinders = require('./import-pathfinders')
@@ -14,15 +13,15 @@ module.exports = function (source) {
   }
   const resourcePath = this.resourcePath
 
-  const options = objectAssign({}, defaults, loaderUtils.getOptions(this))
+  const options = Object.assign({}, defaults, loaderUtils.getOptions(this))
   if(options.syntax === 'auto') options.syntax = identifySyntax(resourcePath)
 
   const pathfinders = importPathfinders(options.syntax)
 
   //resolving
-  var matches = []
+  let matches = []
 
-  pathfinders.forEach(function(pathfinder, i) {
+  pathfinders.forEach((pathfinder, i) => {
     matches = pathfinder(source)
     source = aliasResolve(options.aliases, options.root, source, matches)
   })

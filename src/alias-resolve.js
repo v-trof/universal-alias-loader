@@ -1,20 +1,21 @@
 const path = require('path')
 
 module.exports = function(resolves, root, source, matches) {
-
-  for(var alias in resolves) {
-    resolves[alias] = path.resolve(root, resolves[alias])
+  //convert aliases to absolute paths joined by /
+  for(let alias in resolves) {
+    resolves[alias] = path.resolve(root, resolves[alias]).split(path.sep).join('/')
   }
 
-  var replacement = ''
-  matches.forEach(function(match) {
+  let replacement = ''
+  matches.forEach(match => {
     replacement = match
 
-    for(var alias in resolves) {
+    for(let alias in resolves) {
       replacement = replacement.replace(alias, resolves[alias])
     }
 
-    source = source.replace(match, replacement)
+    //means some aliases were found
+    if(replacement !== match) source = source.replace(match, replacement)
   })
 
   return source

@@ -27,9 +27,6 @@
   },
   "homepage": "https://github.com/VsevolodTrofimov/universal-alias-loader#readme",
   "dependencies": {
-    "glob": "^7.1.2",
-    "loader-utils": "^1.1.0",
-    "named-regexp": "^0.1.1",
-    "object-assign": "^4.1.1"
+    "loader-utils": "^1.1.0"
   }
 }
