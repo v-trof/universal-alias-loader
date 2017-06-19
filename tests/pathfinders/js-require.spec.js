@@ -17,7 +17,8 @@ test('Matches only the right parts of the snippet', () => {
     require("node-require")
 
     let foo = {}
-    foo.required = true
+    foo.require = () => {}
+    foo.require('lils')
 
     const module = require("./path/to/module.js")
   `
