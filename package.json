@@ -4,7 +4,7 @@
   "description": "Alisas loader that works for both CSS\\Sass\\Less & JS files and resolves aliases",
   "main": "loader.js",
   "scripts": {
-    "test": "npm test"
+    "test": "node ./node_modules/jest/bin/jest.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,8 @@
   "homepage": "https://github.com/VsevolodTrofimov/universal-alias-loader#readme",
   "dependencies": {
     "loader-utils": "^1.1.0"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
   }
 }
