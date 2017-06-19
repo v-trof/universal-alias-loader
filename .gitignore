@@ -50,6 +50,7 @@ typings/
 
 # Output of 'npm pack'
 *.tgz
+package-lock.json
 
 # Yarn Integrity file
 .yarn-integrity
@@ -57,3 +58,5 @@ typings/
 # dotenv environment variables file
 .env
 
+# playground dirs
+playground

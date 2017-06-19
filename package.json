@@ -1,0 +1,35 @@
+{
+  "name": "universal-alias-loader",
+  "version": "0.0.0",
+  "description": "Alisas loader that works for both CSS\\Sass\\Less & JS files and resolves aliases",
+  "main": "loader.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VsevolodTrofimov/universal-alias-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "alias",
+    "loader",
+    "js",
+    "es6",
+    "css",
+    "sass",
+    "less"
+  ],
+  "author": "VsevolodTrofimov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VsevolodTrofimov/universal-alias-loader/issues"
+  },
+  "homepage": "https://github.com/VsevolodTrofimov/universal-alias-loader#readme",
+  "dependencies": {
+    "glob": "^7.1.2",
+    "loader-utils": "^1.1.0",
+    "named-regexp": "^0.1.1",
+    "object-assign": "^4.1.1"
+  }
+}
