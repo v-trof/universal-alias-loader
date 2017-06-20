@@ -12,6 +12,6 @@ module.exports = {
       else matches.push(match[6])
     }
 
-    return matches || []
+    return matches
   }
 }

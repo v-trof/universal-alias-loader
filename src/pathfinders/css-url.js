@@ -10,6 +10,6 @@ module.exports = {
       matches.push(match[2])
     }
 
-    return matches ? matches : []
+    return matches
   }
 }
