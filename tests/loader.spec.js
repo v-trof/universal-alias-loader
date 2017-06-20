@@ -1,4 +1,5 @@
 const loader = require('../index')
+const path = require('path')
 
 test('Matches webpack api scheme', (done) => {
   const fakeWebpackEnv = {
@@ -9,7 +10,7 @@ test('Matches webpack api scheme', (done) => {
         '@blah': 'blah'
       }
     },
-    context: 'C:/',
+    context: process.cwd(),
     //we check for override as well
     resourcePath: 'RPATH.js',
     callback: specCB
@@ -27,7 +28,7 @@ test('Matches webpack api scheme', (done) => {
 
 
 test('Properly uses context & autodetection', (done) => {
-    const context = 'C:/'
+    const context = process.cwd()
     const fakeWebpackEnv = {
       query: {
         alias: {
@@ -42,7 +43,8 @@ test('Properly uses context & autodetection', (done) => {
     loader.call(fakeWebpackEnv, `import '@module'`)
 
     function specCB(err, data) {
-      expectedPath = context + fakeWebpackEnv.query.alias['@module']
+      expectedPath = context.split(path.sep).join('/') +
+                     '/' + fakeWebpackEnv.query.alias['@module']
       expect(data).toEqual(`import '${expectedPath}'`)
       done()
     }

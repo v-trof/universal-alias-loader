@@ -8,7 +8,6 @@ module.exports = function(resolves, root, source, matches) {
   for(let alias in resolves) {
     if( ! webProtocolRegexp.test(resolves[alias]))
     resolves[alias] = path.resolve(root, resolves[alias]).split(path.sep).join('/')
-
     //backslash is used because it works everywhre unlike lolcal machine specific path.sep
   }
 

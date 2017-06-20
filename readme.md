@@ -1,4 +1,4 @@
-# universal-alias-loader •
+# universal-alias-loader • [![Build Status](https://travis-ci.org/VsevolodTrofimov/universal-alias-loader.svg?branch=master)](https://travis-ci.org/VsevolodTrofimov/universal-alias-loader)
 Loader that will replace aliases in your css and js files, supports absolute, relative and url paths
 
 Turn this
