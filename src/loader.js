@@ -9,7 +9,7 @@ module.exports = function (source) {
   const defaults = {
     syntax: 'auto',
     root: this.context,
-    aliases: {}
+    alias: {}
   }
   const resourcePath = this.resourcePath
 
@@ -23,7 +23,7 @@ module.exports = function (source) {
 
   pathfinders.forEach((pathfinder, i) => {
     matches = pathfinder(source)
-    source = aliasResolve(options.aliases, options.root, source, matches)
+    source = aliasResolve(options.alias, options.root, source, matches)
   })
 
   this.callback(null, source)

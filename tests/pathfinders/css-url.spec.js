@@ -20,7 +20,7 @@ test('Matches only the right parts of the snippet', () => {
     }
 
     .url-btn:active {
-      border-image: url('@cdn/nice_pattern.svg')
+      border-image: url(@cdn/nice_pattern.svg)
     }
   `
 

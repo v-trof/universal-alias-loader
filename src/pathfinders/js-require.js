@@ -1,7 +1,7 @@
 module.exports = {
   syntax: 'js',
   pathfinder: function(source) {
-    const regex = /\brequire\(('|")([^'"]*)(\1)\)/gm
+    const regex = /\brequire\(\s*('|")([^'"]*)(\1)\s*\)/gm
 
     const matches = []
 

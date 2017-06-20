@@ -1,11 +1,10 @@
 const loader = require('../index')
-const fs = require('fs')
 
 test('Matches webpack api scheme', (done) => {
   const fakeWebpackEnv = {
     query: {
       syntax: 'css',
-      aliases: {
+      alias: {
         '@cdn': 'https://MYSUPERCDN.awsome/static/',
         '@blah': 'blah'
       }
@@ -20,7 +19,7 @@ test('Matches webpack api scheme', (done) => {
 
 
   function specCB(err, data) {
-    let expectedPropValue = `url('${fakeWebpackEnv.query.aliases['@cdn']}/bg.png')`
+    let expectedPropValue = `url('${fakeWebpackEnv.query.alias['@cdn']}/bg.png')`
     expect(data).toEqual(`body {backgroud: ${expectedPropValue}}`)
     done()
   }
@@ -31,7 +30,7 @@ test('Properly uses context & autodetection', (done) => {
     const context = 'C:/'
     const fakeWebpackEnv = {
       query: {
-        aliases: {
+        alias: {
           '@module': 'path/to/module'
         }
       },
@@ -43,9 +42,7 @@ test('Properly uses context & autodetection', (done) => {
     loader.call(fakeWebpackEnv, `import '@module'`)
 
     function specCB(err, data) {
-      expectedPath = context + fakeWebpackEnv.query.aliases['@module']
-
-      fs.writeFileSync('result', context)
+      expectedPath = context + fakeWebpackEnv.query.alias['@module']
       expect(data).toEqual(`import '${expectedPath}'`)
       done()
     }

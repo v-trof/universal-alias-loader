@@ -1,7 +1,7 @@
 module.exports = {
   syntax: 'css',
   pathfinder: function(source) {
-    const regex = /\burl\(('|")?([^'"]*)(\1)?\)/gm
+    const regex = /\burl\(\s*('|")?([^'"\n\r]*)(\1)?\s*\)/gm
 
     const matches = []
 
