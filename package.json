@@ -1,6 +1,6 @@
 {
   "name": "universal-alias-loader",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Alisas loader that works for both CSS\\Sass\\Less & JS files and resolves aliases",
   "main": "loader.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "sass",
     "less"
   ],
-  "author": "VsevolodTrofimov",
+  "author": "vsevolod-trofimov",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/VsevolodTrofimov/universal-alias-loader/issues"
