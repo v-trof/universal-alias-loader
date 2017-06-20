@@ -9,6 +9,8 @@ test('Matches on all require syntaxes', () => {
   expect(jsRequireModule.pathfinder(`require("${path}")`)).toEqual([path])
   //single quotes
   expect(jsRequireModule.pathfinder(`require('${path}')`)).toEqual([path])
+  //template string
+  expect(jsRequireModule.pathfinder('require(`' + path + '`)')).toEqual([path])
 })
 
 test('Matches only the right parts of the snippet', () => {

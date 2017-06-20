@@ -9,6 +9,9 @@ test('Matches import "module" syntax', () => {
   expect(jsImportModule.pathfinder(`import "${path}"`)).toEqual([path])
   //single quotes
   expect(jsImportModule.pathfinder(`import '${path}'`)).toEqual([path])
+
+  //template strings
+  expect(jsImportModule.pathfinder('import `' + path + '`')).toEqual([path])
 })
 
 test('Matches import * from "module" syntax', () => {
@@ -25,6 +28,9 @@ test('Matches import var from "module" syntax', () => {
   expect(jsImportModule.pathfinder(`import var from "${path}"`)).toEqual([path])
   //single quotes
   expect(jsImportModule.pathfinder(`import var from '${path}'`)).toEqual([path])
+
+  //template strings
+  expect(jsImportModule.pathfinder('import var from `' + path + '`')).toEqual([path])
 })
 
 test('Matches import {...} from "module" syntax', () => {
