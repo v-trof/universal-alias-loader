@@ -37,15 +37,15 @@ Like any other loader
 ```
 
 ## What can be an alias?
-Any string, no matter how long, but keep in mind that if you set `/` or `\\` as alias it WILL replace them
+Any string, no matter how long, but keep in mind that if you set `/` or `\\` as alias universal-alias-loader WILL replace them
 
 
 ## Options (Query)
 | NameDescription | Type     | Default       | Description                                                                                                      |
 |-----------------|----------|---------------|------------------------------------------------------------------------------------------------------------------|
 | alias           | {Object} | {}            | Object keys are aliases, values are resolves {'@alias': 'resolve'}                                               |
-| root            | {String} | process.cwd() | Abs path to project root                                                                                         |
-| syntax          | {String} | auto          | "js" for ES6 imports & CommonJS require ; "css" for css @import & css url() replacements |
+| syntax          | {String} | auto          | **js** for ES6 `import` & CommonJS `require()`. **css** for css `@import` & css `url()` css-modules `from` replacements. **auto** determines syntax for each file individually based on the file extension|
+
 
 ## Syntax support
 | Syntax                 | Example                                                                                            | Supported          |
@@ -58,3 +58,8 @@ Any string, no matter how long, but keep in mind that if you set `/` or `\\` as 
 | webpack magic comments | require(/* webpackChunkName: 'Anything' */ '@alias')                                               | :x:                |
 
 Webpack magic comments are on the way, but PRs are welcome (modify js-require & js-es6import pathfinders)
+
+## Tips
+If your `webpack.confing.js` is not your project in root make sure to [have the context property in your confing set to the project root](https://github.com/gokulkrishh/how-to-setup-webpack-2)
+
+Alias staring with `http://`, `https://`, `ws://`, `wss://`, `ftp://`, `ftps://` are determined as absolute
