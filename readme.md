@@ -36,9 +36,25 @@ Like any other loader
 }
 ```
 
+## What can be an alias?
+Any string, no matter how long, but keep in mind that if you set `/` or `\\` as alias it WILL replace them
+
+
 ## Options (Query)
 | NameDescription | Type     | Default       | Description                                                                                                      |
 |-----------------|----------|---------------|------------------------------------------------------------------------------------------------------------------|
 | alias           | {Object} | {}            | Object keys are aliases, values are resolves {'@alias': 'resolve'}                                               |
 | root            | {String} | process.cwd() | Abs path to project root                                                                                         |
 | syntax          | {String} | auto          | "js" for ES6 imports & CommonJS require ; "css" for css @import & css url() replacements |
+
+## Syntax support
+| Syntax                 | Example                                                                                            | Supported          |
+|------------------------|----------------------------------------------------------------------------------------------------|--------------------|
+| CSS url()              | background: url('@cdn/pics/main-bg.png'); /* With double, single, no quotes */                     | :heavy_check_mark: |
+| CSS Import             | @import '@src/reset.css'; @import url(@cdn/Roboto.css); @import "@utils/print-layout.css" print;   | :heavy_check_mark: |
+| CSS Modules from       | composes: className from '@components/btn.css';                                                    | :heavy_check_mark: |
+| ES6 imports            | import {   Foo as Bar, Qux} from "~/constants" //multiline will be ok                              | :heavy_check_mark: |
+| CommonJS require       | require(`@components/${name}`)                                                                     | :heavy_check_mark: |
+| webpack magic comments | require(/* webpackChunkName: 'Anything' */ '@alias') /                                             | :x:                |
+
+Webpack magic comments are on the way, but PRs are welcome (modify js-require & js-es6import pathfinders)
