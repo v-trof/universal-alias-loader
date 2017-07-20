@@ -3,12 +3,12 @@ Loader that will replace aliases in your css and js files, supports absolute, re
 
 Turn this
 ```javascript
-import { ru, en } '../../../utils/i18n'
+import { ru, en } from '../../../utils/i18n'
 ```
 
 Into this
 ```javascript
-import { ru, en } '@utils/i18n'
+import { ru, en } from '@utils/i18n'
 ```
 
 ## Installation
