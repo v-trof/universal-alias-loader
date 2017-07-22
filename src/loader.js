@@ -24,7 +24,7 @@ module.exports = function (source) {
 
   pathfinders.forEach((pathfinder, i) => {
     matches = pathfinder(source)
-    source = aliasResolve(options.alias, this.context, source, matches)
+    source = aliasResolve(options.alias, this.resourcePath, source, matches)
   })
 
   this.callback(null, source)
