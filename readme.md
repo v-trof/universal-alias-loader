@@ -37,11 +37,35 @@ Like any other loader
 ```
 
 ## What can be an alias?
+### String
 Any string, no matter how long, but keep in mind that if you set `/` or `\\` as alias universal-alias-loader WILL replace them
+### Function
+Should return path string
 
+Arguments passed for the function would be `(alias, importPath, filePath)`
+ - `importPath` is a string with contents of found import \ url expression
+ - `filePath` is a string with path to file currently being processed
+ - `alias` alias this function should handle, basically `key` in `options.alias` this function is paired with
 
-## Options (Query)
-| NameDescription | Type     | Default       | Description                                                                                                      |
+ **Example usage**
+ ```javascript
+ alias: {
+   //we use folder structure like src/pages/{pagename}/**
+   //this alias replaces @thispage with path to that page
+  '@thisPage': (alias, importPath, filePath) => {
+              let splitFilePath = filePath.split(path.sep)
+              let pagePath = splitFilePath
+                .slice(0, splitFilePath.indexOf('pages') + 2)
+                .join('/')
+
+              return importPath.replace(alias, pagePath)
+            }
+}
+ ```
+ I really use it this way in one of my project, because we have one complex page with visual storytelling and sometimes files like `{pagename}/story/stages/0.js` need to access `{pagename}/utils` but we want to keep them movable and avoid unclear `../`
+
+## Options (Query)1
+| Name | Type     | Default       | Description                                                                                                      |
 |-----------------|----------|---------------|------------------------------------------------------------------------------------------------------------------|
 | alias           | {Object} | {}            | Object keys are aliases, values are resolves {'@alias': 'resolve'}                                               |
 | syntax          | {String} | auto          | **js** for ES6 `import` & CommonJS `require()`. **css** for css `@import` & css `url()` css-modules `from` replacements. **auto** determines syntax for each file individually based on the file extension|
