@@ -79,7 +79,7 @@ Arguments passed for the function would be `(alias, importPath, filePath)`
 | CSS Modules from       | composes: className from '@components/btn.css';                                                    | :heavy_check_mark: |
 | ES6 imports            | import {   Foo as Bar, Qux} from "~/constants" //multiline will be ok                              | :heavy_check_mark: |
 | CommonJS require       | require(`@components/${name}`)                                                                     | :heavy_check_mark: |
-| webpack magic comments | require(/* webpackChunkName: 'Anything' */ '@alias')                                               | :x:                |
+| webpack magic comments | import(/* webpackChunkName: 'Anything' */ '@alias')                                               | :heavy_check_mark:                |
 
 Webpack magic comments are on the way, but PRs are welcome (modify js-require & js-es6import pathfinders)
 
