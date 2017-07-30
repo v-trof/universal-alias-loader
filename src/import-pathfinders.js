@@ -4,7 +4,8 @@ const modules = [
   require('./pathfinders/css-url'),
   require('./pathfinders/css-import'),
   require('./pathfinders/js-require'),
-  require('./pathfinders/js-es6import')
+  require('./pathfinders/js-es6import'),
+  require('./pathfinders/js-webpack-async-import')
 ]
 
 modules.forEach(item => {

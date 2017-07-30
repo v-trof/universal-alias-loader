@@ -1,6 +1,6 @@
 {
   "name": "universal-alias-loader",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Alisas loader that works for both CSS\\Sass\\Less & JS files and resolves aliases",
   "main": "loader.js",
   "scripts": {
