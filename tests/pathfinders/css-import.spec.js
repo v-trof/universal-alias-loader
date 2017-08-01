@@ -32,7 +32,8 @@ test('Matches import url() syntaxes', () => {
 
 test('Matches only the right parts of the snippet', () => {
   let snippet = `
-  @import './print.css' print;
+  @import './print.css' print
+  @import './print2.css' print
   @import url('@bootstrap');
     body {
       backgroud: url(a.png)
@@ -43,5 +44,5 @@ test('Matches only the right parts of the snippet', () => {
     }
   `
 
-  expect(cssImportModule.pathfinder(snippet)).toEqual(['./print.css', '@bootstrap'])
+  expect(cssImportModule.pathfinder(snippet)).toEqual(['./print.css', './print2.css', '@bootstrap'])
 })
